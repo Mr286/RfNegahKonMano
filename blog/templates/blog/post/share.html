@@ -4,14 +4,39 @@
 
 {% block content %}
   {% if sent %}
-    <h1>E-mail successfully sent</h1>
-    <p>"{{ post.title }}" was successfully sent by e-mail.</p>
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h1>E-mail successfully sent</h1>
+    </div>
+    <div class="panel-body">
+      <div class=" panel panel-success">
+        <div class="container-fluid">
+          <p class="margin-top">
+            "{{ post.title }}" was successfully sent by e-mail.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
   {% else %}
-    <h1>Share "{{ post.title }}" by e-mail</h1>
-    <form action="." method="post">
-      {{ form.as_p }}
-      {% csrf_token %}
-      <input type="submit" value="Send e-mail">
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h1>Share "{{ post.title }}" by e-mail</h1>
+    </div>
+    <div class="panel-body">
+      <div class=" panel panel-success">
+        <div class="container-fluid">
+          <form action="." method="post" class="margin-top panel-success">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input type="submit" class="btn btn-success" value="Send e-mail">
+          <br><br>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
     </form>
   {% endif %}
 {% endblock %}
